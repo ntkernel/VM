@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>LLT VM CONSOLE</title>
+        <script>
+            function rerun(){
+                var httpRequest = new XMLHttpRequest();
+                httpRequest.open('GET', 'http://120.79.54.82/VM/rerun', true);
+                httpRequest.send();
+                console.log("RERUN REQUESTED");
+                httpRequest.onreadystatechange = function(){
+                    if (httpRequest.readyState==4){
+                        console.log(httpRequest.responseText);
+                        alert(httpRequest.responseText)
+                    }
+                }
+            }
+            function cancel(){
+                var input = document.getElementById("pwd")
+                var password = input.value
+                var httpRequest = new XMLHttpRequest();
+                httpRequest.open('GET', 'http://120.79.54.82/VM/cancel?pwd='+password, true);
+                httpRequest.send();
+                console.log("CANCEL REQUESTED");
+                httpRequest.onreadystatechange = function(){
+                    if (httpRequest.readyState==4){
+                        console.log(httpRequest.responseText);
+                        alert(httpRequest.responseText)
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Password:
+        <input type="password" name="pwd" id="pwd"></input>
+        <br>
+        <button onclick="rerun()">Start VM(rerun)</button>
+        <button onclick="cancel()">Stop VM(cancel)</button>
+    </body>
+</html>
