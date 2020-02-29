@@ -4,7 +4,7 @@
         <script>
             function rerun(){
                 var httpRequest = new XMLHttpRequest();
-                httpRequest.open('GET', 'http://120.79.54.82/VM/rerun', true);
+                httpRequest.open('GET', 'https://120.79.54.82/VM/rerun', true);
                 httpRequest.send();
                 console.log("RERUN REQUESTED");
                 httpRequest.onreadystatechange = function(){
@@ -18,7 +18,7 @@
                 var input = document.getElementById("pwd")
                 var password = input.value
                 var httpRequest = new XMLHttpRequest();
-                httpRequest.open('GET', 'http://120.79.54.82/VM/cancel?pwd='+password, true);
+                httpRequest.open('GET', 'https://120.79.54.82/VM/cancel?pwd='+password, true);
                 httpRequest.send();
                 console.log("CANCEL REQUESTED");
                 httpRequest.onreadystatechange = function(){
